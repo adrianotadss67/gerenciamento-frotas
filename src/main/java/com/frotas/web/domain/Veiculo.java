@@ -9,6 +9,16 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Veiculo extends AbstractEntity<Long> {
 	
+	@ManyToOne
+	@JoinColumn(name = "id_fipe_fk")
+	private Fipe fipe;
+	@ManyToOne
+	@JoinColumn(name = "id_categoria_fk")
+	private Categoria categoria;
+	@ManyToOne
+	@JoinColumn(name = "id_combustivel_fk")
+	private Combustivel tipoCombustivel;
+	
 	@Column(nullable = false, length = 20)
 	private String ano;
 	
@@ -27,16 +37,6 @@ public class Veiculo extends AbstractEntity<Long> {
 	@Column(name = "capacidade_tanque", nullable = false, length = 10)
 	private Integer capacidadeTanque;
 	
-	@Column(name = "tipo_combustivel", nullable = false, length = 70)
-	private String tipoCombustivel;
-	
-	@ManyToOne
-	@JoinColumn(name = "id_fipe_fk")
-	private Fipe fipe;
-	
-	@ManyToOne
-	@JoinColumn(name = "id_categoria_fk")
-	private Categoria categoria;
 	
 	
 	public String getAno() {
@@ -75,10 +75,10 @@ public class Veiculo extends AbstractEntity<Long> {
 	public void setCapacidadeTanque(Integer capacidadeTanque) {
 		this.capacidadeTanque = capacidadeTanque;
 	}
-	public String getTipoCombustivel() {
+	public Combustivel getTipoCombustivel() {
 		return tipoCombustivel;
 	}
-	public void setTipoCombustivel(String tipoCombustivel) {
+	public void setTipoCombustivel(Combustivel tipoCombustivel) {
 		this.tipoCombustivel = tipoCombustivel;
 	}
 	public Fipe getFipe() {
