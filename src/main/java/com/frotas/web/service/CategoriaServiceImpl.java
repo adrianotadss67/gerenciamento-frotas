@@ -40,4 +40,12 @@ public class CategoriaServiceImpl implements CategoriaService {
 		return dao.findAll();
 	}
 
+	@Override
+	public boolean categoriaTemVeiculo(Long id) {
+		if(findById(id).getVeiculos().isEmpty()) {
+			return false;// TODO Auto-generated method stub
+		}
+		return true;
+	}
+
 }

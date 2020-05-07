@@ -12,9 +12,11 @@ public class Veiculo extends AbstractEntity<Long> {
 	@ManyToOne
 	@JoinColumn(name = "id_fipe_fk")
 	private Fipe fipe;
+	
 	@ManyToOne
 	@JoinColumn(name = "id_categoria_fk")
 	private Categoria categoria;
+	
 	@ManyToOne
 	@JoinColumn(name = "id_combustivel_fk")
 	private Combustivel tipoCombustivel;
@@ -93,5 +95,5 @@ public class Veiculo extends AbstractEntity<Long> {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-		
+	
 }
